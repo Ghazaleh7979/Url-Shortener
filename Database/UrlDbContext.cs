@@ -12,6 +12,8 @@ public class UrlDbcontext: DbContext
     }
 
     public DbSet<Urls> UrlList { get; set; } = null!;
+    
+    public DbSet<LoginModel> UserPass { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
