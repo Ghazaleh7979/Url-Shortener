@@ -12,6 +12,8 @@ builder.Services.AddDbContext<UrlDbcontext>(opts => {
 });
 builder.Services.AddScoped<IUrlRepository, UrlRepository>();
 builder.Services.AddScoped<IUrlApplication, UrlApplication>();
+builder.Services.AddScoped<ILoginApplicatin, LoginApplicatin>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UrlShortener.Repository;
 
 namespace UrlShortener.Controllers;
 [ApiController]
 [Route("[controller]")]
+[Authorize]
+
 public class GetController : ControllerBase
 {
     private readonly IUrlRepository _repository;
