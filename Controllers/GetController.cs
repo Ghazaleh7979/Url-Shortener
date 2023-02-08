@@ -4,8 +4,8 @@ using UrlShortener.Repository;
 
 namespace UrlShortener.Controllers;
 [ApiController]
-[Route("[controller]")]
-[Authorize]
+[Route("api/[controller]")]
+
 
 public class GetController : ControllerBase
 {
@@ -16,7 +16,9 @@ public class GetController : ControllerBase
         _repository = repository;
     }
 
-    [HttpPost]
+    
+    [HttpGet]
+    [Authorize]
     public async Task<ActionResult<string>> Show(string ll, CancellationToken cancellationToken)
     {
         var full =(await _repository.GetLongUrl(ll, cancellationToken))?.ShortUrl;

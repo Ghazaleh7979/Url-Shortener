@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UrlShortener.DataBase;
@@ -11,9 +12,11 @@ using UrlShortener.DataBase;
 namespace UrlShortener.Migrations
 {
     [DbContext(typeof(UrlDbcontext))]
-    partial class UrlDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20230208203936_SaveKey")]
+    partial class SaveKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

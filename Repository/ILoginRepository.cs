@@ -4,5 +4,7 @@ namespace UrlShortener.Repository;
 
 public interface ILoginRepository
 {
-    public  Task<LoginModel> LoginUser(string user, string pass);
+    public  Task<LoginModel?> LoginUser(string user, string pass);
+
+    public void Keys();
 }
