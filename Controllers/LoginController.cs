@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Mvc;
-using Npgsql.Internal.TypeHandlers;
 using UrlShortener.Application;
-using UrlShortener.Models.Entity;
 
 namespace UrlShortener.Controllers;
 
@@ -18,7 +16,7 @@ public class LoginController : ControllerBase
         _applicatin = applicatin;
     }
 
-    [HttpPost]
+    [HttpPost("/Login")]
     public async Task<IActionResult> LoginBox(string user, string pass)
     {
         if (ModelState.IsValid)
@@ -31,11 +29,13 @@ public class LoginController : ControllerBase
             }
             else
             {
-                return Redirect("www.google.com");
+                return Ok();
             }
         }
-
-        return BadRequest(new { message = "Please enter your User and Pass" });
+        else
+        {
+            return BadRequest(new { message = "Please enter your User and Pass" });
+        }
 
     }
 

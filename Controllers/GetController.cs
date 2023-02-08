@@ -16,7 +16,7 @@ public class GetController : ControllerBase
         _repository = repository;
     }
 
-    [HttpPost("GetShortenedUrl")]
+    [HttpPost]
     public async Task<ActionResult<string>> Show(string ll, CancellationToken cancellationToken)
     {
         var full =(await _repository.GetLongUrl(ll, cancellationToken))?.ShortUrl;
