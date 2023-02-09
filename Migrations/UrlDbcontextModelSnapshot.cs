@@ -263,9 +263,6 @@ namespace UrlShortener.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddTime")
-                        .HasColumnType("integer");
-
                     b.Property<string>("LongUrl")
                         .IsRequired()
                         .HasColumnType("text");
