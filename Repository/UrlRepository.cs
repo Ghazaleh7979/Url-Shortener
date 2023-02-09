@@ -22,7 +22,7 @@ public class UrlRepository : IUrlRepository
         };
 
         var shu = new GetGuid().GetGuidd();
-        
+
 
         urls.ShortUrl = shu;
 
@@ -33,9 +33,16 @@ public class UrlRepository : IUrlRepository
         return urls;
     }
 
+
     public async Task<Urls?> GetShortUrl(string shu, CancellationToken cancellationToken)
     {
         var resultUrl = await _dbContext.UrlList.Where(u => u.ShortUrl == shu).FirstOrDefaultAsync(cancellationToken);
         return resultUrl;
+    }
+
+    public SaveKey ValiSaveKey()
+    {
+        var saveKey = _dbContext.KeyList.OrderBy(o=>o.Id).Last();
+        return saveKey;
     }
 }

@@ -4,7 +4,7 @@ using UrlShortener.Application;
 namespace UrlShortener.Controllers;
 
 [ApiController]
-[Route("/Login/")]
+[Route("/")]
 public class RedirectUrlController : ControllerBase
 {
     private readonly IUrlApplication _application;

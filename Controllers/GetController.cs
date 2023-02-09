@@ -11,17 +11,22 @@ public class GetController : ControllerBase
 {
     private readonly IUrlRepository _repository;
 
-    public GetController(IUrlRepository repository)
+    public GetController(IUrlRepository repository, ILoginRepository loginRepository)
     {
         _repository = repository;
     }
 
     
     [HttpGet]
-    [Authorize]
-    public async Task<ActionResult<string>> Show(string ll, CancellationToken cancellationToken)
+    public async Task<ActionResult<string>> Show(string key,string ll , CancellationToken cancellationToken)
     {
-        var full =(await _repository.GetLongUrl(ll, cancellationToken))?.ShortUrl;
-        return Ok( $"https://localhost:7201/{full}");
+        var last = _repository.ValiSaveKey();
+        if (last.Key == key)
+        {
+            var full =(await _repository.GetLongUrl(ll, cancellationToken))?.ShortUrl;
+            return Ok( $"https://localhost:7201/{full}");
+        }
+
+        return BadRequest("you cant enter");
     }
 }

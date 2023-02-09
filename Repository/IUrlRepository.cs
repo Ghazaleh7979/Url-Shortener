@@ -7,4 +7,6 @@ public interface IUrlRepository
     public Task<Urls?> GetLongUrl(string lu, CancellationToken cancellationToken);
 
     public Task<Urls?> GetShortUrl(string shu, CancellationToken cancellationToken);
+
+    public SaveKey ValiSaveKey();
 }

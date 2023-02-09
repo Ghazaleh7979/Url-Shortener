@@ -12,16 +12,20 @@ public class LoginApplicatin : ILoginApplicatin
         _repository = repository;
     }
 
-    public async Task<LoginModel> Check(string user, string pass)
+    public async Task<LoginModel?> Check(string user, string pass)
     {
         var getUserPas = await _repository.LoginUser(user, pass);
-        
-        if (getUserPas == null)
-        {
-            throw new Exception("not found!");
-        }
 
         return getUserPas;
+    }
+    
+
+
+    public async Task<SaveKey> KeyCheck()
+    {
+        var query =await _repository.Keys();
+        
+        return query;
     }
 }
     

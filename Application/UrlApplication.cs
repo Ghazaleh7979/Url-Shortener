@@ -14,6 +14,7 @@ public class UrlApplication : IUrlApplication
     public async Task<string> Check(string idd, CancellationToken cancellationToken)
     {
         var urls = await _repository.GetShortUrl(idd, cancellationToken);
+
         if (urls == null)
         {
             throw new Exception("Link not found!");

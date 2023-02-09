@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using UrlShortener.DataBase;
 using UrlShortener.Models.Dto;
 using UrlShortener.Models.Entity;
@@ -23,7 +24,7 @@ public class LoginRepository : ILoginRepository
         return uuu;
     }
 
-    public void Keys()
+    public async Task<SaveKey> Keys()
     {
         var keys = new GetGuid().GetGuidd();
         SaveKey saveKey = new SaveKey()
@@ -31,10 +32,12 @@ public class LoginRepository : ILoginRepository
             Key = keys
         };
         
-        _urlDbContext
+        await _urlDbContext
             .KeyList
             .AddAsync(saveKey);
         
         _urlDbContext.SaveChanges();
+        
+        return saveKey;
     }
 }
