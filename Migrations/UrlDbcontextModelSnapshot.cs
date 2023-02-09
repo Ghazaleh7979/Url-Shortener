@@ -10,7 +10,7 @@ using UrlShortener.DataBase;
 
 namespace UrlShortener.Migrations
 {
-    [DbContext(typeof(UrlDbcontext))]
+    [DbContext(typeof(UrlDbContext))]
     partial class UrlDbcontextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -268,7 +268,6 @@ namespace UrlShortener.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ShortUrl")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

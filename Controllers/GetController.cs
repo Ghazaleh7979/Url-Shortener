@@ -24,9 +24,16 @@ public class GetController : ControllerBase
         if (last.Key == key)
         {
             var full =(await _repository.GetLongUrl(ll, cancellationToken))?.ShortUrl;
-            return Ok( $"https://localhost:7201/{full}");
+            if (full != null)
+            {
+                return Ok( $"https://localhost:7201/{full}");
+            }
+            else
+            {
+                return BadRequest("First Enter Long Url ");
+            }
         }
 
-        return BadRequest("you cant enter");
+        return BadRequest("Please Login and enter your input key");
     }
 }

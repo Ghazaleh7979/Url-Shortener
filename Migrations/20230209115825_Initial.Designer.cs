@@ -11,9 +11,9 @@ using UrlShortener.DataBase;
 
 namespace UrlShortener.Migrations
 {
-    [DbContext(typeof(UrlDbcontext))]
-    [Migration("20230208203745_Addkey2")]
-    partial class Addkey2
+    [DbContext(typeof(UrlDbContext))]
+    [Migration("20230209115825_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -229,9 +229,6 @@ namespace UrlShortener.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Key")
-                        .HasColumnType("text");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text");
@@ -243,6 +240,22 @@ namespace UrlShortener.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserPass");
+                });
+
+            modelBuilder.Entity("UrlShortener.Models.Entity.SaveKey", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Key")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("KeyList");
                 });
 
             modelBuilder.Entity("UrlShortener.Models.Entity.Urls", b =>
@@ -258,7 +271,6 @@ namespace UrlShortener.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ShortUrl")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

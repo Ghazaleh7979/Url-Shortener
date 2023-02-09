@@ -7,9 +7,9 @@ namespace UrlShortener.Repository;
 
 public class UrlRepository : IUrlRepository
 {
-    private readonly UrlDbcontext _dbContext;
+    private readonly UrlDbContext _dbContext;
 
-    public UrlRepository(UrlDbcontext dbContext)
+    public UrlRepository(UrlDbContext dbContext)
     {
         _dbContext = dbContext;
     }

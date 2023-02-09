@@ -10,7 +10,7 @@ using UrlShortener.Repository;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<UrlDbcontext>(opts => {
+builder.Services.AddDbContext<UrlDbContext>(opts => {
     opts.UseNpgsql(
         builder.Configuration.GetConnectionString("UrlConnection")!);
 });

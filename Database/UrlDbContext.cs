@@ -6,9 +6,9 @@ using UrlShortener.Models.Entity;
 
 namespace UrlShortener.DataBase;
 
-public class UrlDbcontext: IdentityDbContext
+public class UrlDbContext: IdentityDbContext
 {
-    public UrlDbcontext(DbContextOptions<UrlDbcontext> options)
+    public UrlDbContext(DbContextOptions<UrlDbContext> options)
         : base(options)
     {
     }

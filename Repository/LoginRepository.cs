@@ -8,9 +8,9 @@ namespace UrlShortener.Repository;
 
 public class LoginRepository : ILoginRepository
 {
-    private readonly UrlDbcontext _urlDbContext;
+    private readonly UrlDbContext _urlDbContext;
 
-    public LoginRepository(UrlDbcontext urlDbContext)
+    public LoginRepository(UrlDbContext urlDbContext)
     {
         _urlDbContext = urlDbContext;
     }
