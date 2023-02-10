@@ -6,5 +6,5 @@ public interface ILoginRepository
 {
     public  Task<LoginModel?> LoginUser(string user, string pass);
 
-    public Task<SaveKey> Keys();
+    public Task<string?> Keys();
 }

@@ -24,7 +24,7 @@ public class LoginRepository : ILoginRepository
         return uuu;
     }
 
-    public async Task<SaveKey> Keys()
+    public async Task<string?> Keys()
     {
         var keys = new GetGuid().GetGuidd();
         SaveKey saveKey = new SaveKey()
@@ -38,6 +38,6 @@ public class LoginRepository : ILoginRepository
         
         _urlDbContext.SaveChanges();
         
-        return saveKey;
+        return saveKey.Key;
     }
 }

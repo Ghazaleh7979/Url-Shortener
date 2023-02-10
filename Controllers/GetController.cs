@@ -24,6 +24,7 @@ public class GetController : ControllerBase
         if (last.Key == key)
         {
             var full =(await _repository.GetLongUrl(ll, cancellationToken))?.ShortUrl;
+
             if (full != null)
             {
                 return Ok( $"https://localhost:7201/{full}");

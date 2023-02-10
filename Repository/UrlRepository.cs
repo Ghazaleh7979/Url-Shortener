@@ -27,10 +27,14 @@ public class UrlRepository : IUrlRepository
 
         await _dbContext.UrlList.AddAsync(urls, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
-        
 
+
+        var addTime = DateTime.UtcNow;
+        urls.DateTime = addTime;
+        
         return urls;
     }
+    
 
 
     public async Task<Urls?> GetShortUrl(string shu, CancellationToken cancellationToken)

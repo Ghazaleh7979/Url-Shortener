@@ -6,6 +6,6 @@ public interface ILoginApplicatin
 {
     public Task<LoginModel?> Check(string user, string pass);
 
-    public Task<SaveKey> KeyCheck();
+    public Task<string> KeyCheck();
 
 }

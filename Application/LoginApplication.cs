@@ -21,7 +21,7 @@ public class LoginApplicatin : ILoginApplicatin
     
 
 
-    public async Task<SaveKey> KeyCheck()
+    public async Task<string> KeyCheck()
     {
         var query =await _repository.Keys();
         

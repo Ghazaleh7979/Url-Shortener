@@ -12,7 +12,7 @@ using UrlShortener.DataBase;
 namespace UrlShortener.Migrations
 {
     [DbContext(typeof(UrlDbContext))]
-    [Migration("20230209125431_Initial")]
+    [Migration("20230209204726_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -265,6 +265,9 @@ namespace UrlShortener.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("LongUrl")
                         .IsRequired()
