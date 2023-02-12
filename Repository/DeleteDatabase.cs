@@ -14,11 +14,18 @@ public class DeleteDatabase : IDeleteDatabase
 
     public void DeleteData()
     {
-        //var timeNow = DateTime.UtcNow;
-        DateTime timeNow = DateTime.UtcNow - new TimeSpan(5,0,0);
+        
+        // DateTime timeNow = DateTime.UtcNow - new TimeSpan(5,0,0);
+        //
+        // IQueryable<Urls> remo = _context
+        //     .UrlList.Where(d => d.DateTime >= timeNow);
 
+        DateTime nowtime = DateTime.UtcNow;
+        var five = nowtime.AddHours(-5);
+        
         IQueryable<Urls> remo = _context
-            .UrlList.Where(d => d.DateTime >= timeNow);
+             .UrlList.Where(d => d.DateTime <= five);
+        
 
         foreach (var n in remo)
         {

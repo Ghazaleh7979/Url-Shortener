@@ -24,13 +24,12 @@ public class UrlRepository : IUrlRepository
         var shu = new GetGuid().GetGuidd();
         urls.ShortUrl = shu;
 
-
-        await _dbContext.UrlList.AddAsync(urls, cancellationToken);
-        await _dbContext.SaveChangesAsync(cancellationToken);
-
-
         var addTime = DateTime.UtcNow;
         urls.DateTime = addTime;
+        
+        await _dbContext.UrlList.AddAsync(urls, cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+        
         
         return urls;
     }
