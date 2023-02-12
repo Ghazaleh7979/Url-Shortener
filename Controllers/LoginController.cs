@@ -25,8 +25,8 @@ public class LoginController : ControllerBase
 
         if (fff != null)
         {
-            var resp = _application.KeyCheck();
-            // return Redirect("https://localhost:7201/api/Get");
+            var resp =await _application.KeyCheck();
+            
             return Ok(resp) ;
         }
         

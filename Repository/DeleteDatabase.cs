@@ -14,10 +14,11 @@ public class DeleteDatabase : IDeleteDatabase
 
     public void DeleteData()
     {
-        var timeNow = DateTime.UtcNow;
+        //var timeNow = DateTime.UtcNow;
+        DateTime timeNow = DateTime.UtcNow - new TimeSpan(5,0,0);
 
         IQueryable<Urls> remo = _context
-            .UrlList.Where(d => timeNow.Hour - d.DateTime.Hour >= 5 || d.DateTime.Day != timeNow.Day);
+            .UrlList.Where(d => d.DateTime >= timeNow);
 
         foreach (var n in remo)
         {
